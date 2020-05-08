@@ -1,0 +1,22 @@
+{
+  "name": "node_system",
+  "version": "0.0.1",
+  "description": "Servidor de la red social",
+  "main": "index.js",
+  "author": "Luis Antonio Padre Garcia, Jose Antonio Padre Garcia",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "blueimp-md5": "^2.15.0",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.7",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "socket.io": "^2.3.0",
+    "uuid": "^8.0.0"
+  }
+}
