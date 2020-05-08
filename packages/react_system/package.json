@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "parcel public/index.html"
+    "start": "parcel public/index.html",
+    "dev": "parcel public/index.html"
   },
   "dependencies": {
     "@babel/core": "^7.9.6",

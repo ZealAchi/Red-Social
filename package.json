@@ -1,7 +1,11 @@
 {
   "name": "root",
+  "author": "Luis Antonio Padre Garcia, Jose Antonio Padre Garcia",
   "private": true,
   "devDependencies": {
     "lerna": "^3.20.2"
+  },
+  "scripts": {
+    "install_dev": "cd ./packages/node_system && yarn install && cd ./../react_system && yarn install && cd ./../.."
   }
 }
