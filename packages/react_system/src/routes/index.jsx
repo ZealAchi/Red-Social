@@ -21,8 +21,6 @@ export default function() {
   const { data: Notification = [] } = useContext(NotificationContext);
 
   return (
-    <div>
-      Hola
       <Router>
         <Layout>
           <button
@@ -41,10 +39,10 @@ export default function() {
           >
             Enviar Notificacion por default
           </button>
-          {!loading ? (
+          {/* {!loading ? (
             <>Loading...</>
           ) 
-          : (
+          : ( */}
             <Switch>
               {Rutas.map((item, i) => {
                 return (
@@ -56,12 +54,10 @@ export default function() {
                 );
               })}
             </Switch>
-          )
-          }
+          {/* )
+          } */}
         </Layout>
       </Router>
-      
-    </div>
   );
 }
 

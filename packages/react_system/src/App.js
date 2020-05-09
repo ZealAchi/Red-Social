@@ -16,7 +16,9 @@ library.add(fab, faFingerprint);
 
 
 const StyledApp = styled.div`
-
+background-color:grey;
+height:100vh;
+min-height:100%
 `;
 
 function App() {

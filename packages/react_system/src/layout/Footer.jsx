@@ -1,12 +1,17 @@
 import React from 'react'
-
+import styled from 'styled-components'
+const StyledFooter = styled.footer`
+background-color:rgba(23,21,32,1);
+/* height:100%; */
+flex:1;
+`
 export default function (){
   return(
-        <footer className="page-footer font-small blue fixed-bottom">
-          <div className="footer-copyright text-center py-3">© 2020 Copyright:
+        <StyledFooter>
+          <div>© 2020 Copyright:
             <a> Luis Antonio Padre Garcia</a>
           </div>
-        </footer>
+        </StyledFooter>
         
   )
 }
