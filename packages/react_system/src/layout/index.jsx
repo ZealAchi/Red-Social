@@ -6,10 +6,11 @@ import styled from 'styled-components'
 import { Loader } from "../components/Loader";
 import { LoadContext } from "./../context/Load.Context";
 const StyledLayout = styled.div`
-height:calc(100vh - 90px);
-background-color:rgba(11,7,17,1);
-display:flex;
-flex-direction: column;
+  /* height:calc(100vh - 13px); */
+  bottom: 0;
+  background-color:rgba(11,7,17,1);
+  display:flex;
+  flex-direction: column;
 `
 
 export default memo(function Layout({ children }) {

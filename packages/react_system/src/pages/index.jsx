@@ -11,10 +11,17 @@ display:flex;
     align-self:center;
     justify-content:center;
     flex-direction:column;
+    
+    @media screen and (min-width: 22vh){
+        width: 18vh;
+    }
 }
 & div#NewMessage{
     flex:1;
     background-color:blue;
+    @media screen and (max-width:726px){
+        display:none
+    }
 }
 `
 export function Home() {
@@ -71,33 +78,65 @@ function MakePost() {
 }
 
 const StyledCardHome = styled.div`
-background-color:red;
-width: 84%;
-border-radius:35px;
-padding:1.5rem;
-margin: auto;
-margin-bottom: 2rem;
+    background-color:rgb(44, 44, 49);
+    width: 84%;
+    border-radius:35px;
+    padding:1.5rem;
+    margin: auto;
+    margin-bottom: 2rem;
+    @media screen and (max-width:720px){
+        /* justify-content: center;    */
+    }
 `
+const Img= styled.img`
+    border-radius: 30px;
+    width:  25rem;
+    @media screen and (max-width:720px){
+        width: 75%;
+        height: 20rem;
+        align-self: center !important;
+        min-height: 25rem;
+        min-width: 25rem;
+    }
+    @media screen and (min-width: 200px){
+        /* height: 10rem; */
+        min-height: 10rem;
+        min-width: 10rem;
+    }
+    
+`
+const SeccionComentarios = styled.div`
+
+`
+const Content = styled.div`
+    display:flex;
+    padding:12px;
+    @media screen and (max-width:720px){
+        flex-direction:column;
+        
+    }
+`
+
 const CardHome = () => {
     return <StyledCardHome>
         <div style={{ display: 'flex'}}>
             <div id="User" />
-            <h1>Antonio></h1>
+            <h1>Antonio</h1>
             <h3>Hace 1 seg</h3>
             <h1>...</h1>
         </div>
         <div>Habrá beneficios y regalos a los usuarios registrados en mi  plataforma (sin obligación de compra)
         te espero en https://itoo.dev</div>
-        <div style={{display:'flex',padding:12}}>
-        <img style={{borderRadius:30}} src="https://cdn4.buysellads.net/uu/1/41369/1551199029-Adobe_Stock_260x200-2.jpg" alt="this is car image" />
-        <div>
-        <div>Me gustan:64 No me gustan:34</div>
-        <div>Comentarios:105</div>
-        <div>
-        <div id="User" />
-        <p>as das dla sklaskl askd akl dklasdk</p>
-        </div>
-        </div>
-        </div>
+        <Content >
+        <Img src="https://cdn4.buysellads.net/uu/1/41369/1551199029-Adobe_Stock_260x200-2.jpg" alt="this is car image" />
+        <SeccionComentarios>
+            <div>Me gustan:64 No me gustan:34</div>
+            <div>Comentarios:105</div>
+            <div>
+                <div id="User" />
+                <p>as das dla sklaskl askd akl dklasdk</p>
+            </div>
+        </SeccionComentarios>
+        </Content>
     </StyledCardHome>
 }

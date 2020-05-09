@@ -4,6 +4,7 @@ import {
     Link
 } from "react-router-dom";
 const StyledNavbar=styled.div`
+
 /* width:228px; */
 height:100%;
 flex:1;
@@ -119,6 +120,9 @@ ul{
 		mask: ${props => `url(${props.svgMyGroups}) no-repeat center;`};
         margin-left: 1rem;
         margin-right: 1rem;
+    }
+    @media screen and (max-width: 726px){
+        display:none;
     }
 `
 export function NavBar(){
