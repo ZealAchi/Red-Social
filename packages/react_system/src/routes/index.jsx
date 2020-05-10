@@ -16,20 +16,20 @@ import { ModalContext } from "../context/Modal.Context";
 
 const AuthValue = [];
 
-export default function({modal}) {
+export default function ({ modal }) {
   const { data: AuthInfo } = useContext(AuthContext);
   const { loading, changeState: changeLoad } = useContext(LoadContext);
   const { data: Notification = [] } = useContext(NotificationContext);
-  const {MostarModal} = useContext(ModalContext);
+  const { MostarModal } = useContext(ModalContext);
 
-  useEffect(()=>{
+  useEffect(() => {
     MostarModal(modal.modalShowing)
-  },[modal.modalShowing])
+  }, [modal.modalShowing])
 
   return (
-      <Router>
-        <Layout>
-          <button onClick={()=>{
+    <Router>
+      <Layout>
+        {/* <button onClick={()=>{
             modal.setModalShowing(true)
           }} >Mosatra Modal</button>
           <button
@@ -47,26 +47,27 @@ export default function({modal}) {
             }}
           >
             Enviar Notificacion por default
-          </button>
-          {/* {!loading ? (
+          </button> */}
+        {/* {!loading ? (
             <>Loading...</>
           ) 
           : ( */}
-            <Switch>
-              {Rutas.map((item, i) => {
-                return (
-                  <RenderComponent
-                    key={i}
-                    AuthInfo={AuthInfo}
-                    component={item.component}
-                  />
-                );
-              })}
-            </Switch>
-          {/* )
+        <Switch>
+          {Rutas.map((route, index) => (
+            // Render more <Route>s with the same paths as
+            // above, but different components this time.
+            <Route
+              key={index}
+              path={route.path}
+              exact={route.exact}
+              children={<route.main />}
+            />
+          ))}
+        </Switch>
+        {/* )
           } */}
-        </Layout>
-      </Router>
+      </Layout>
+    </Router>
   );
 }
 
