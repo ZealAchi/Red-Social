@@ -3,13 +3,16 @@ import Routes from "./../routes";
 import AuthContext from "./Auth.Context";
 import LoadContext from "./Load.Context";
 import NotificationContext from "./Notification.Context";
+import ModalContext  from "./Modal.Context";
 
-export default function() {
+export default function({modal}) {
   return (
     <LoadContext>
       <NotificationContext>
         <AuthContext>
-          <Routes />
+          <ModalContext>
+          <Routes modal={modal}/>
+          </ModalContext>
         </AuthContext>
       </NotificationContext>
     </LoadContext>

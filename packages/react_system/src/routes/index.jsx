@@ -12,14 +12,20 @@ import { AuthContext } from "./../context/Auth.Context";
 import { LoadContext } from "./../context/Load.Context";
 import { NotificationContext } from "./../context/Notification.Context";
 import { Rutas, RenderComponent } from "./DataRoute";
+// import { ModalContext } from "../context/Modal.Context";
 
 const AuthValue = [];
 
-export default function() {
+export default function({modal}) {
   const { data: AuthInfo } = useContext(AuthContext);
   const { loading, changeState: changeLoad } = useContext(LoadContext);
   const { data: Notification = [] } = useContext(NotificationContext);
-
+  // const ModalContext = useContext(ModalContext);
+  
+  // console.log(ModalContext)
+  // useEffect(()=>{
+  //   MostarModal(modal.modalShowing)
+  // },[])
   return (
       <Router>
         <Layout>
