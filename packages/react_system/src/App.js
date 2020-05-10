@@ -13,12 +13,13 @@ import { ToastContainer } from "react-toastify";
 import { Modal } from './components/Modal';
 import { useModal } from './Hooks/useModal';
 
-
 library.add(fab, faFingerprint);
 
 
 const StyledApp = styled.div`
-background-color:grey;
+	background-color:grey;
+	height: 100%; 
+	width: 100%;
 `;
 
 function App() {
@@ -33,12 +34,13 @@ function App() {
 
 
 	return (<StyledApp>
-		<ToastContainer />
-		<AppContainer modal={modal} />
+		    	<ToastContainer />
+				  <AppContainer modal={modal} />
 		{modal.modalShowing && <Modal modal={modal} />}
-	</StyledApp>)
+					</StyledApp>)
 }
 
 if (document.getElementById('react_root')) {
 	ReactDOM.render(<App />, document.getElementById('react_root'));
 }
+

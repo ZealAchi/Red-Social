@@ -13,7 +13,7 @@
 *::after {
 	margin: 0;
 	padding: 0;
-	box-sizing: inherit;
+	box-sizing: content-box	;
 	
 	outline:0 none !important;
 } 
