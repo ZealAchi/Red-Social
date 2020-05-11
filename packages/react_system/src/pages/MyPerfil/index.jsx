@@ -3,11 +3,10 @@ import styled from 'styled-components'
 import { useHistory } from "react-router-dom";
 import {
     BrowserRouter as Router,
-    HashRouter,
     Route,
-    Switch,
-    Redirect
 } from "react-router-dom";
+import { withRouter } from "react-router";
+
 import { RutasPerfil } from '../../routes/DataRoute';
 
 const StyledMyPerfil = styled.div`
@@ -76,10 +75,11 @@ export function MyPerfil() {
                         display: 'flex',
                         flexDirection: 'row-reverse'
                     }}>
-                        <button style={{backgroundColor: 'rgba(34,50,99,1)',
-                        color: '#fff',borderRadius: 5,padding: '0.8rem',
-                        border:'none',
-                        cursor:'pointer'
+                        <button style={{
+                            backgroundColor: 'rgba(34,50,99,1)',
+                            color: '#fff', borderRadius: 5, padding: '0.8rem',
+                            border: 'none',
+                            cursor: 'pointer'
                         }}>
                             Configurar Perfil
                     </button>
@@ -116,11 +116,36 @@ export function MyPerfil() {
 }
 
 
-const TabPerfil = ({ label, id, navigate, children }) => {
+const H2Tab = styled.h2`
+text-align: center;
+ box-shadow: 36px 22px 235px 2px;
+ cursor: pointer;
+ background-color:${props => {console.log(props.className); return props.className === 'active' ? ' rgba(1,3,61,12)':''}}}
+`
+const TabPerfilContainer = ({ label, id, navigate, children, location }) => {
+
+    let path = null
+    if (location.pathname === '/My-Perfil/tagged' && label === 'Etiquetados') {
+        path = true;
+        console.log(location.pathname, 'location')
+    } 
+     if (location.pathname === '/My-Perfil/Save' && label === 'Guardado') {
+        path = true;
+        console.log(location.pathname, 'location')
+    } 
+     if (location.pathname === '/My-Perfil/Files' && label === 'Multimedia') {
+        path = true;
+        console.log(location.pathname, 'location')
+    } 
+    if (location.pathname === '/My-Perfil' && label === 'Publicaciones') {
+        path = true;
+        console.log(location.pathname, 'location')
+    }
     return (<div id={id}>
-        <h2 onClick={() => { navigate() }} style={{ textAlign: 'center', boxShadow: '36px 22px 235px 2px', cursor: 'pointer' }}>
+        <H2Tab className={path ? 'active' : null} onClick={() => { navigate() }}>
             {label}
-        </h2>
+        </H2Tab>
         {children}
     </div>)
 }
+const TabPerfil = withRouter(TabPerfilContainer);
