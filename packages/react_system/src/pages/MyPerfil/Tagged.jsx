@@ -20,7 +20,7 @@ export function Tagged() {
             <h2>
                 Todavía no tienes una etiquetaciòn.
         </h2>
-            <h3>Cuando lo hagas, aparecerán aquí.</h3>
+            <h3>Cuando lo hagas, aparecerán aquí.</h3> 
         </div>
     </StyledTagged>
 }
