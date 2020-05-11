@@ -38,3 +38,23 @@ export const Rutas = [
 
 ];
 
+
+export const RutasPerfil = [
+  {
+    path: "/My-Perfil",
+    exact: false,
+    main: () => <h1>perfils </h1>
+  },  {
+    path: "/My-Perfil/Files",
+    exact: true,
+    main: () => <h1>Archivos </h1>
+  },  {
+    path: "/My-Perfil/Save",
+    exact: true,
+    main: () => <h1>save </h1>
+  },  {
+    path: "/My-Perfil/tagged",
+    exact: true,
+    main: () => <h1>etiquetados </h1>
+  },
+]
