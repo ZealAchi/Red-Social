@@ -112,10 +112,13 @@ const Img = styled.img`
     min-width: 10rem;
   }
 `;
-const SeccionComentarios = styled.div``;
+const SeccionComentarios = styled.div`
+    padding: 10px 20px 20px 20px;
+`;
 const Content = styled.div`
   display: flex;
   padding: 12px;
+
   @media screen and (max-width: 720px) {
     flex-direction: column;
   }
@@ -125,27 +128,35 @@ const CardHome = () => {
   return (
     <StyledCardHome>
       <div style={{ display: "flex" }}>
-        <div id="User" />
-        <h1>Antonio</h1>
-        <h3>Hace 1 seg</h3>
-        <h1>...</h1>
+        <div id="User" >
+          <h1>Antonio</h1>
+        </div>
+        <div style={{ marginLeft: 'auto' }}>
+          <h3 >Hace 1 seg</h3>
+        </div>
+        <h3  style={{marginTop: '-2.5rem'}}>
+        <span style={{fontSize: '4rem'}}>{'  '}...</span>
+        </h3> 
       </div>
-      <div>
+      <h3>
         Habrá beneficios y regalos a los usuarios registrados en mi plataforma
         (sin obligación de compra) te espero en https://itoo.dev
-      </div>
+      </h3>
       <Content>
         <Img
           src="https://cdn4.buysellads.net/uu/1/41369/1551199029-Adobe_Stock_260x200-2.jpg"
           alt="this is car image"
         />
         <SeccionComentarios>
-          <div>Me gustan:64 No me gustan:34</div>
+          <h3>
+          <div>Me gustan:64 No me gustan:34</div><br/>
           <div>Comentarios:105</div>
+          <br/>
           <div>
             <div id="User" />
             <p>as das dla sklaskl askd akl dklasdk</p>
           </div>
+          </h3>
         </SeccionComentarios>
       </Content>
     </StyledCardHome>

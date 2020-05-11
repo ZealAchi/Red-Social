@@ -41,19 +41,19 @@ export const Rutas = [
 
 export const RutasPerfil = [
   {
-    path: "/",
+    path: "/My-Perfil",
     exact: false,
     main: () => <h1>perfils </h1>
   },  {
-    path: "/Files",
+    path: "/My-Perfil/Files",
     exact: false,
-    main: () => <h1>Archivos </h1>
+  main: () => <h1>Archivos {console.log("Archivos")}</h1>
   },  {
-    path: "/Save",
+    path: "/My-Perfil/Save",
     exact: false,
     main: () => <h1>save </h1>
   },  {
-    path: "/tagged",
+    path: "/My-Perfil/tagged",
     exact: false,
     main: () => <h1>etiquetados </h1>
   },

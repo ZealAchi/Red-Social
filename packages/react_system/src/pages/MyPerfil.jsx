@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useHistory } from "react-router-dom";
 import {
     BrowserRouter as Router,
+    HashRouter,
     Route,
     Switch,
     Redirect
@@ -95,10 +96,10 @@ export function MyPerfil() {
             </div>
         </div>
         <div style={{ flex: 1, backgroundColor: 'red' }}>
-        <Router basename="/My-Perfil" >
-        <Switch>
+        <Route basename="/My-Perfil" >
+        {/* <Switch> */}
                 {RutasPerfil.map((route, index) => {
-                    console.log(route,index,"Ds")
+                    // console.log(route,index,"Ds")
                     return (<Route
                         key={index}
                         path={route.path}
@@ -106,8 +107,8 @@ export function MyPerfil() {
                         children={<route.main />}
                     />)
                 })}
-            </Switch>
-        </Router>
+            {/* </Switch> */}
+        </Route>
             
         </div>
     </StyledMyPerfil>)
