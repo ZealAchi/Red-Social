@@ -8,7 +8,8 @@ import {
     Switch,
     Redirect
 } from "react-router-dom";
-import { RutasPerfil } from '../routes/DataRoute';
+import { RutasPerfil } from '../../routes/DataRoute';
+
 const StyledMyPerfil = styled.div`
 color:#fff;
 flex:1;
@@ -39,6 +40,9 @@ flex-direction:column;
 export function MyPerfil() {
     let history = useHistory();
 
+    function RedirectPerfil() {
+        history.push('/My-Perfil')
+    }
     function RedirectFiles() {
         history.push('/My-Perfil/Files')
     }
@@ -60,26 +64,25 @@ export function MyPerfil() {
                     Kiritor Garcia
             </h2>
             </div>
-                <div id="dataPerfil">
-                    <div style={{ margin: 8 }}>
-                        <h2>
-                            0 publicaciones
-                </h2>
+                <div>
+                    <div id="dataPerfil">
+                        <div style={{ margin: 8 }}><h2>0 publicaciones</h2></div>
+                        <div style={{ margin: 8 }}><h2>30 amigos</h2></div>
+                        <div style={{ margin: 8 }}><h2>2 seguidores</h2></div>
+                        <div style={{ margin: 8 }}><h2>75 seguidos</h2></div>
                     </div>
-                    <div style={{ margin: 8 }}>
-                        <h2>
-                            30 amigos
-                </h2>
-                    </div>
-                    <div style={{ margin: 8 }}>
-                        <h2>
-                            2 seguidores
-                </h2>
-                    </div>
-                    <div style={{ margin: 8 }}>
-                        <h2>
-                            75 seguidos
-                </h2>
+                    <div style={{
+                        flex: 1,
+                        display: 'flex',
+                        flexDirection: 'row-reverse'
+                    }}>
+                        <button style={{backgroundColor: 'rgba(34,50,99,1)',
+                        color: '#fff',borderRadius: 5,padding: '0.8rem',
+                        border:'none',
+                        cursor:'pointer'
+                        }}>
+                            Configurar Perfil
+                    </button>
                     </div>
                 </div>
             </div>
@@ -89,15 +92,15 @@ export function MyPerfil() {
                 flex: 1, backgroundColor: 'rgba(11,7,17,1)', display: 'grid',
                 gridTemplateColumns: 'auto auto auto auto'
             }}>
-                <TabPerfil id="Publicaciones" label="Publicaciones" navigate={()=>alert("Cuack")}/>
-                <TabPerfil id="Archivos" label="Archivos" navigate={RedirectFiles}/>
-                <TabPerfil id="Guardado" label="Guardado" navigate={RedirectSave}/>
-                <TabPerfil id="Etiquetados" label="Etiquetados"  navigate={Redirecttagged}/>
+                <TabPerfil id="Publicaciones" label="Publicaciones" navigate={RedirectPerfil}></TabPerfil>
+                <TabPerfil id="Archivos" label="Multimedia" navigate={RedirectFiles} ></TabPerfil>
+                <TabPerfil id="Guardado" label="Guardado" navigate={RedirectSave} ></TabPerfil>
+                <TabPerfil id="Etiquetados" label="Etiquetados" navigate={Redirecttagged}>
+                </TabPerfil>
             </div>
         </div>
-        <div style={{ flex: 1, backgroundColor: 'red' }}>
-        <Route basename="/My-Perfil" >
-        {/* <Switch> */}
+        <div style={{ flex: 1, display: 'flex' }}>
+            <Route basename="/My-Perfil" >
                 {RutasPerfil.map((route, index) => {
                     // console.log(route,index,"Ds")
                     return (<Route
@@ -107,18 +110,17 @@ export function MyPerfil() {
                         children={<route.main />}
                     />)
                 })}
-            {/* </Switch> */}
-        </Route>
-            
+            </Route>
         </div>
     </StyledMyPerfil>)
 }
 
 
-const TabPerfil = ({ label, id,navigate }) => {
-    return (<div id={id} onClick={()=>{navigate()}}>
-        <h2 style={{ textAlign: 'center', boxShadow: '36px 22px 235px 2px', cursor: 'pointer' }}>
+const TabPerfil = ({ label, id, navigate, children }) => {
+    return (<div id={id}>
+        <h2 onClick={() => { navigate() }} style={{ textAlign: 'center', boxShadow: '36px 22px 235px 2px', cursor: 'pointer' }}>
             {label}
         </h2>
+        {children}
     </div>)
 }

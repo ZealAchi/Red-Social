@@ -2,7 +2,7 @@ import React,{useState,createContext} from 'react'
 
 export const LoadContext=createContext()
 const initialData={
-    loading:true,
+    loading:false,
 }
 export default function LoadContextProvider({children}){
   const [state,setState]=useState(initialData)
