@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useHistory } from "react-router-dom";
 import {
-    BrowserRouter,
+    BrowserRouter as Router,
     Route,
     Switch,
     Redirect
@@ -95,9 +95,10 @@ export function MyPerfil() {
             </div>
         </div>
         <div style={{ flex: 1, backgroundColor: 'red' }}>
-        <BrowserRouter basename="/My-Perfil" >
+        <Router basename="/My-Perfil" >
         <Switch>
                 {RutasPerfil.map((route, index) => {
+                    console.log(route,index,"Ds")
                     return (<Route
                         key={index}
                         path={route.path}
@@ -106,7 +107,8 @@ export function MyPerfil() {
                     />)
                 })}
             </Switch>
-        </BrowserRouter>
+        </Router>
+            
         </div>
     </StyledMyPerfil>)
 }

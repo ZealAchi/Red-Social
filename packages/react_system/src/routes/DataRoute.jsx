@@ -11,28 +11,28 @@ export const Rutas = [
     main: () => <Home />
   },
   {
-    exact: false,
+    exact: true,
     path: "/search",
     main: () => <Search/>
   },
   {
-    exact: false,
+    exact: true,
     path: "/My-Groups",
     main: () => <h2>My-Groups</h2>
   },
   {
-    exact: false,
+    exact: true,
     path: "/My-Friends",
     main: () => <MyFriends/>
   },
   {
-    exact: false,
+    exact: true,
     path: "/Save-Elements",
     main: () => <SaveElements/>
   },
   {
     path: "/My-Perfil",
-    exact: true,
+    exact: false,
     main: () => <MyPerfil/>
   },
 
@@ -41,20 +41,20 @@ export const Rutas = [
 
 export const RutasPerfil = [
   {
-    path: "/My-Perfil",
+    path: "/",
     exact: false,
     main: () => <h1>perfils </h1>
   },  {
-    path: "/My-Perfil/Files",
-    exact: true,
+    path: "/Files",
+    exact: false,
     main: () => <h1>Archivos </h1>
   },  {
-    path: "/My-Perfil/Save",
-    exact: true,
+    path: "/Save",
+    exact: false,
     main: () => <h1>save </h1>
   },  {
-    path: "/My-Perfil/tagged",
-    exact: true,
+    path: "/tagged",
+    exact: false,
     main: () => <h1>etiquetados </h1>
   },
 ]
