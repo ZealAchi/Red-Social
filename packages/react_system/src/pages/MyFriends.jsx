@@ -1,16 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import QueueAnim from 'rc-queue-anim'
 
 const Section = styled.section`
   background-color: #594b67 !important;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
   box-sizing: inherit;
   place-content: baseline;
   justify-content: center;
   overflow-y: scroll;
   height: 47rem;
-  width: 98%;
+  width: 100%;
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -29,6 +30,12 @@ const Section = styled.section`
     background: blueviolet;
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
   }
+  /* div{
+    flex:1;
+    display:flex;
+    flex-wrap:wrap;
+    width:20rem;
+  } */
 `;
 const Card = styled.div`
   /* width: 10s0%; */
@@ -146,7 +153,7 @@ export function MyFriends() {
       </Buscar>
 
       <Section>
-       
+      <QueueAnim type='left' delay={100}>
       {[1,2,3,4,5,6,7,1,2,3,4,5,6,7,1,2,3,4,5,6,7,1,2,3,4,5,6,7,1,2,3,4,5,6,7,1,2,3,4,5,6,7,].map((index, value) => (
           <Card key={value}>
           <CardBody>
@@ -169,7 +176,7 @@ export function MyFriends() {
         </Card>
             ))}
           
-       
+       </QueueAnim>
       </Section>
     </>
   );
