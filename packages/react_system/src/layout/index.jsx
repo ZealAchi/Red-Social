@@ -7,10 +7,10 @@ import { Loader } from "../components/Loader";
 import { LoadContext } from "./../context/Load.Context";
 const StyledLayout = styled.div`
   /* height:calc(100vh - 13px); */
+  flex: 1;
   height: 100%;
   bottom: 0;
   background-color: rgba(11, 7, 17, 1);
-  display: flex;
   flex-direction: column; 
   display: flex;
 `;

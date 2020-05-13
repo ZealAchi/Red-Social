@@ -18,8 +18,12 @@ library.add(fab, faFingerprint);
 
 const StyledApp = styled.div`
 	background-color:grey;
-	height: 100%; 
-	width: 100%;
+	/* height: 100%; */
+	/* display: flex; */
+	/* display: contents; */
+	/* width: 100%; */
+	flex: 1;
+    display: flex;
 `;
 
 function App() {

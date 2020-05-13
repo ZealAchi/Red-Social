@@ -8,6 +8,14 @@ import { Publications } from '../pages/MyPerfil/Publications';
 import { Files } from '../pages/MyPerfil/files';
 import {SaveElementsProfile} from '../pages/MyPerfil/SaveElements'
 import { Tagged } from '../pages/MyPerfil/Tagged';
+import { Login } from '../pages/Login';
+
+export const RutasNoAuth=[
+  {path:"/",
+  exact:false,
+  main:()=><Login/>
+}
+]
 export const Rutas = [
   {
     path: "/",
