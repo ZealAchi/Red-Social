@@ -3,8 +3,8 @@ import React,{useState,createContext} from 'react'
 export const AuthContext=createContext()
 const initialData={
   data:{
-    // token:"asdasd",
-    token:undefined,
+    token:"asdasd",
+    // token:undefined,
     role:undefined,
     name:'Luis Antonio',
 

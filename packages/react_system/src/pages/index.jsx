@@ -18,10 +18,22 @@ const StyledHome = styled.div`
     }
   }
   & div#NewMessage {
-    flex: 1;
-    background-color: blue;
+    flex: 2.8;
+    display:flex;
+    flex-direction:column;
     @media screen and (max-width: 726px) {
       display: none;
+    }
+    & div#chatFriend{
+      display: flex;
+      align-items: center;
+      cursor:pointer;
+      :hover{
+        background: #636e72;
+        color: #000;
+        border-radius: 14px;
+        padding: 4px;
+      }
     }
   }
 `;
@@ -29,24 +41,70 @@ export function Home() {
   return (
     <StyledHome>
       <div id="Content">
-        <MakePost />
         <div
           style={{
             overflowY: "scroll",
             display: "flex",
             flexDirection: "column",
             width: "100%",
-            height: "73vh",
+            height: "90vh",
           }}
         >
+          <MakePost />
           {/* <QueueAnim type="left" delay={100}> */}
-            {[1,2,3,4,5,6,7,].map((index, value) => (
-              <CardHome key={value}/>
-            ))}
+          {[1, 2, 3, 4, 5, 6, 7,].map((index, value) => (
+            <CardHome key={value} />
+          ))}
           {/* </QueueAnim> */}
         </div>
       </div>
-      <div id="NewMessage">Crear Nuevo Mensaje</div>
+      <div id="NewMessage">
+        <div style={{ flex: 6, margin: 5, backgroundColor: 'red', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ flex: 1 }}>
+            <h2>Mis Historias</h2>
+          </div>
+          <div style={{ flex: 1, display: 'flex' }}>
+            <h2>Conversaciones de grupos</h2>
+            <div>
+              <img src={`/images/settings_icon.png`} />
+            </div>
+          </div>
+        </div>
+        <div style={{ flex: 5, margin: 5, overflowY: 'auto' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <h2>Mis Contactos</h2>
+            <div style={{ justifyContent: 'flex-end' }}>
+              <img width={25} height={25} src={`/images/search_icon.png`} />
+              <img width={25} height={25} src={`/images/settings_icon.png`} />
+            </div>
+          </div>
+          {[1, 2, 3, 4, 5, 6].map(() => {
+            return (
+              <div id="chatFriend" >
+                <ImgFriends
+                  src={`/images/Avatar${Math.floor(Math.random() * 6 + 1)}.png`}
+                  friendsChat
+                />
+                <div style={{ marginLeft: 3 }}>
+                  <h3>Luis Antonio Padre Garcìa</h3>
+                </div>
+                <div>
+                  <img src={`/images/message_indicator_circle.png`} />
+                </div>
+
+              </div>)
+          })}
+        </div>
+        <div style={{ flex: 0, display: 'flex' }}>
+          <input placeholder="Buscar Amigos..." style={{
+            flex: 1,
+            margin: 6,
+            borderRadius: 6,
+            borderWidth: 0,
+            padding: 4
+          }} />
+        </div>
+      </div>
     </StyledHome>
   );
 }
@@ -73,9 +131,15 @@ const StyledMakePost = styled.div`
 function MakePost() {
   return (
     <StyledMakePost svgUser="/icons/16px/user.svg">
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", justifyContent: 'center', alignContent: 'center' }}>
         <div id="User" />
-        <input placeholder="¿Que estas Pensando Antonio?"></input>
+        <input placeholder="¿Que estas Pensando Antonio?" style={{
+          flex: 1,
+          margin: 6,
+          borderRadius: 6,
+          borderWidth: 0,
+          padding: 4
+        }} />
       </div>
       <div style={{ display: "flex", marginTop: "2rem" }}>
         <h2>Foto/Video</h2>
@@ -96,6 +160,34 @@ const StyledCardHome = styled.div`
     /* justify-content: center;    */
   }
 `;
+const ImgFriends = styled.img`
+ border-radius: 30px;
+  width: 5rem;
+  @media screen and (max-width: 720px) {
+    width: 75%;
+    height: 2rem;
+    align-self: center !important;
+    min-height: 2rem;
+    min-width: 2rem;
+  }
+  @media screen and (min-width: 200px) {
+    /* height: 10rem; */
+    min-height: 1rem;
+    min-width: 1rem;
+  }
+`;
+const SeccionComentarios = styled.div`
+    padding: 10px 20px 20px 20px;
+`;
+const Content = styled.div`
+  display: flex;
+  padding: 12px;
+
+  @media screen and (max-width: 720px) {
+    flex-direction: column;
+  }
+`;
+
 const Img = styled.img`
   border-radius: 30px;
   width: 25rem;
@@ -112,17 +204,8 @@ const Img = styled.img`
     min-width: 10rem;
   }
 `;
-const SeccionComentarios = styled.div`
-    padding: 10px 20px 20px 20px;
-`;
-const Content = styled.div`
-  display: flex;
-  padding: 12px;
 
-  @media screen and (max-width: 720px) {
-    flex-direction: column;
-  }
-`;
+
 
 const CardHome = () => {
   return (
@@ -134,9 +217,9 @@ const CardHome = () => {
         <div style={{ marginLeft: 'auto' }}>
           <h3 >Hace 1 seg</h3>
         </div>
-        <h3  style={{marginTop: '-2.5rem'}}>
-        <span style={{fontSize: '4rem'}}>{'  '}...</span>
-        </h3> 
+        <h3 style={{ marginTop: '-2.5rem' }}>
+          <span style={{ fontSize: '4rem' }}>{'  '}...</span>
+        </h3>
       </div>
       <h3>
         Habrá beneficios y regalos a los usuarios registrados en mi plataforma
@@ -149,13 +232,13 @@ const CardHome = () => {
         />
         <SeccionComentarios>
           <h3>
-          <div>Me gustan:64 No me gustan:34</div><br/>
-          <div>Comentarios:105</div>
-          <br/>
-          <div>
-            <div id="User" />
-            <p>as das dla sklaskl askd akl dklasdk</p>
-          </div>
+            <div>Me gustan:64 No me gustan:34</div><br />
+            <div>Comentarios:105</div>
+            <br />
+            <div>
+              <div id="User" />
+              <p>as das dla sklaskl askd akl dklasdk</p>
+            </div>
           </h3>
         </SeccionComentarios>
       </Content>
